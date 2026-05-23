@@ -2,6 +2,7 @@
 
 import { createClientAuth } from "@/lib/supabase/client";
 import { IconEye, IconEyeClosed, IconMail } from "@tabler/icons-react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "sonner";
@@ -68,7 +69,16 @@ export default function Page () {
                             <button className="btn btn-block btn-primary rounded-md btn-lg" onClick={handleSubmit} disabled={form.loading}>{form.loading ? 'Ingresando...' : 'Ingresar'}</button>
                         </div>
                         <div className="w-full">
-                            <p className="text-center text-xs text-primary font-medium">POWERED BY ARCANA CORP</p>
+                            <p className="text-xs text-muted text-center">
+                                Al continuar, aceptas nuestros{" "}
+                                <Link href="/terms" className="text-primary font-medium">
+                                    Términos y Condiciones
+                                </Link>{" "}
+                                y{" "}
+                                <Link href="/privacy" className="text-primary font-medium">
+                                    Política de Privacidad
+                                </Link>.
+                            </p>
                         </div>
                     </div>
                 </div>

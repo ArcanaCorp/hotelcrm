@@ -43,17 +43,19 @@ export default function Navbar () {
                     <Link key={i} href={item.url} className={`w-full flex items-center gap-md py-md px-sm text-sm rounded-md ${pathname === item.url ? 'bg-surface font-semibold text-primary' : ''}`}>{item.ico} {item.txt}</Link>
                 ))}
             </ul>
-            <div className="w-full flex items-center justify-between gap-md">
-                <div className="flex gap-md">
-                    <div className="w h bg-surface rounded-md" style={{"--w": "50px", "--h": "50px"}}>
-                        <img src={`https://ui-avatars.com/api/?name=${profile?.name || 'Usuario'}`} />
+            <div className="w-full">
+                <div className="w-full flex items-center justify-between gap-md">
+                    <div className="flex gap-md">
+                        <div className="w h bg-surface rounded-md" style={{"--w": "50px", "--h": "50px"}}>
+                            <img src={`https://ui-avatars.com/api/?name=${profile?.name || 'Usuario'}`} />
+                        </div>
+                        <p>
+                            <span className="block font-medium">{profile?.name || 'Hotel'}</span>
+                            <span className="block text-muted text-xs">Cuenta General</span>
+                        </p>
                     </div>
-                    <p>
-                        <span className="block font-medium">{profile?.name || 'Hotel'}</span>
-                        <span className="block text-muted text-xs">Cuenta General</span>
-                    </p>
+                    <button className="w h center bg-surface rounded-md" style={{"--w": "50px", "--h": "50px"}} onClick={handleLogout}><IconLogout/></button>
                 </div>
-                <button className="w h center bg-surface rounded-md" style={{"--w": "50px", "--h": "50px"}} onClick={handleLogout}><IconLogout/></button>
             </div>
         </nav>
     )

@@ -2,7 +2,7 @@
 
 import { useHotel } from "@/context/HotelContext";
 import { updateHotel } from "@/services/hotel.service";
-import { IconPhoto } from "@tabler/icons-react";
+import { IconHeadset, IconInfoCircle, IconLock, IconPhoto } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
@@ -83,6 +83,16 @@ export default function page () {
         }
     }
 
+    const handleNavigate = (destination) => {
+        const msg = `Hola *ARCANA*\n\nTengo un error con el *HOTEL CRM* pueden ayudarme a solucionarlo.`
+        const urls = {
+            'help': `https://wa.me/51966327426/?text=${encodeURI(msg)}`,
+            'terms': `https://hotel.andaleya.pe/terms/?utm_source=hotel_crm`,
+            'privacy': `https://hotel.andaleya.pe/terms/#privacy?utm_source=hotel_crm`,
+        }
+        window.open(urls[destination])
+    }
+
     useEffect(() => {
         if (profile) {
             setForm({
@@ -108,7 +118,7 @@ export default function page () {
                 </div>
             </div>
 
-            <div className="w-full">
+            <div className="w-full flex gap-md">
                 <div className="w-full flex gap-md bg-white rounded-md py-3xl px-xl">
                     <div className="w text-center" style={{"--w": "500px"}}>
                         <label className="w h m-auto center rounded-md border-surface bg-surface pointer" style={{"--w": "212px", "--h": "212px"}} htmlFor="photoHotel">
@@ -152,7 +162,13 @@ export default function page () {
                         </div>
                     </div>
                 </div>
-                <div></div>
+                <div className="w bg-white p-md" style={{"--w": "300px", "--mnw": "300px"}}>
+                    <ul className="w-full flex flex-col gap-sm">
+                        <li className="w-full h bg-surface rounded-md flex items-center gap-sm px-md text-sm pointer" style={{"--h": "50px"}} onClick={() => handleNavigate('help')}><IconHeadset/> Soporte técnico</li>
+                        <li className="w-full h bg-surface rounded-md flex items-center gap-sm px-md text-sm pointer" style={{"--h": "50px"}} onClick={() => handleNavigate('terms')}><IconInfoCircle/> Términos y condiciones</li>
+                        <li className="w-full h bg-surface rounded-md flex items-center gap-sm px-md text-sm pointer" style={{"--h": "50px"}} onClick={() => handleNavigate('privacy')}><IconLock/> Política de privacidad</li>
+                    </ul>
+                </div>
             </div>
 
         </>

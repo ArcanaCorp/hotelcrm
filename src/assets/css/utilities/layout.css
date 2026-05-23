@@ -4,3 +4,12 @@
 .h-screen { height: 100dvh; }
 .w { width: var(--w); min-width: var(--mnw); max-width: var(--mxw); }
 .h { height: var(--h); min-height: var(--mnh); max-height: var(--mxh); }
+
+@media (max-width: 768px) {
+    .md\:w-full { width: 100%; }
+    .md\:h-full { height: 100%; }
+    .md\:w-screen { width: 100dvw; }
+    .md\:h-screen { height: 100dvh; }
+    .md\:w { width: var(--w-md); min-width: var(--mnw-md); max-width: var(--mxw-md); }
+    .md\:h { height: var(--h-md); min-height: var(--mnh-md); max-height: var(--mxh-md); }
+}
