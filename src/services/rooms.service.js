@@ -522,3 +522,77 @@ export const deleteRoom = async ({ hotelId, roomId }) => {
     }
 
 }
+
+export const updateStatusRoom = async ({ hotelId, roomId }) => {
+    try {
+        const { error: updateErrorStatus } = await db
+            .from('rooms')
+            .update({
+                status: 'available'
+            })
+            .eq('id', roomId)
+            .eq('hotel_id', hotelId)
+        
+        if (updateErrorStatus) {
+            throw updateErrorStatus
+        }
+        
+        const { data, error } = await db
+            .from('rooms')
+            .select(`
+                *,
+
+                room_images (
+                    id,
+                    url,
+                    is_cover
+                ),
+
+                room_feature_assignments (
+                    feature_id,
+
+                    room_features (
+                        id,
+                        name,
+                        slug,
+                        category
+                    )
+                )
+            `)
+            .eq('id', roomId)
+            .eq('hotel_id', hotelId)
+            .single();
+
+        if (error) {
+            throw error;
+        }
+
+        /*
+        =========================================
+        FORMAT DATA
+        =========================================
+        */
+
+        const formattedRoom = {
+
+            ...data,
+
+            cover:
+                data.room_images.find(
+                    image => image.is_cover
+                ) || null,
+
+            features:
+                data.room_feature_assignments.map(
+                    item => item.room_features
+                )
+
+        };
+
+        return formattedRoom;
+
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+}

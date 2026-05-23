@@ -1,4 +1,5 @@
 'use client';
+import Loading from "@/components/Loading";
 import { useAuth } from "@/context/AuthContext";
 import { useHotel } from "@/context/HotelContext";
 import Navbar from "@/layout/Navbar";
@@ -6,13 +7,15 @@ import { useEffect } from "react";
 
 export default function DashboardLayout ({ children }) {
 
-    const { user } = useAuth();
-    const { getAllData } = useHotel();
+    const { user, loading } = useAuth();
+    const { getAllData, loadProfile } = useHotel();
 
     useEffect(() => {
         if (!user?.id) return;
         getAllData();
     }, [user])
+
+    if (loading || loadProfile) return <Loading/>;
 
     return (
         <div className="w-screen h-screen grid" style={{"gridTemplateColumns": "300px 1fr"}}>

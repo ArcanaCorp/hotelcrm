@@ -140,7 +140,7 @@ export default function FormEditRoom ({ room, onClose }) {
     return (
         <>
             <div className="w-full flex items-center justify-between">
-                <h3>Editar habitación {form.name}s</h3>
+                <h3>Editar habitación {form.name}</h3>
                 <button className="w h center bg-surface rounded-full" style={{"--w": "40px", "--mnw": "40px", "--h": "40px"}} onClick={onClose}><IconX/></button>
             </div>
 

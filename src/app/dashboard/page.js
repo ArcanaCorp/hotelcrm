@@ -9,8 +9,6 @@ import { generateKPIS } from "@/helpers/kpis";
 export default function page () {
 
     const { profile, bookings, rooms, clients, payments } = useHotel();
-
-    console.log(payments);
     
     const kpis = generateKPIS({rooms: rooms, reservations: bookings, clients: clients, payments: payments});
 

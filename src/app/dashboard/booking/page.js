@@ -97,19 +97,19 @@ export default function page () {
                                 <span className="uppercase">CÓDIGO</span>
                             </div>
                             <div className="w-full h-full center text-xs">
-                                <span className="uppercase">Cliente</span>
+                                <span className="uppercase">HUÉSPED</span>
                             </div>
                             <div className="w-full h-full center text-xs">
-                                <span className="uppercase">Habitación</span>
+                                <span className="uppercase">HABITACIÓN</span>
                             </div>
                             <div className="w-full h-full center text-xs">
-                                <span className="uppercase">Total</span>
+                                <span className="uppercase">FECHAS</span>
                             </div>
                             <div className="w-full h-full center text-xs">
-                                <span className="uppercase">Check-in</span>
+                                <span className="uppercase">TOTAL</span>
                             </div>
                             <div className="w-full h-full center text-xs">
-                                <span className="uppercase">Check-out</span>
+                                <span className="uppercase">ESTADO</span>
                             </div>
                         </div>
                         <div className="w-full">

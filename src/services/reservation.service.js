@@ -353,11 +353,8 @@ export const checkinReservation = async ({ reservationId, roomId }) => {
         return true;
 
     } catch (error) {
-
         console.error(error);
-
         throw error;
-
     }
 
 }

@@ -1,12 +1,12 @@
 import { useHotel } from "@/context/HotelContext";
-import { cssStatusRoom, statusRoom } from "@/helpers/statusText";
-import { deleteRoom } from "@/services/rooms.service";
+import { cssStatus, statusRoom } from "@/helpers/statusText";
+import { deleteRoom, updateStatusRoom } from "@/services/rooms.service";
 import { IconDoor, IconPencil, IconTrash, IconUser } from "@tabler/icons-react";
 import { toast } from "sonner";
 
 export default function CardRoom ({ room, onEdit }) {
 
-    const { profile, removeRoom } = useHotel();
+    const { profile, removeRoom, updateRoom } = useHotel();
 
     const image = room.room_images.find((rimage) => rimage.is_cover === true);
 
@@ -37,10 +37,35 @@ export default function CardRoom ({ room, onEdit }) {
         });
     };
 
+    const handleAvailable = () => {
+        toast.warning('Habilitar habitación', {
+            description: `¿Deseas habilitar la habitación "${room.name}"?`,
+            action: {
+                label: 'Habilitar',
+                onClick: async () => {
+                    const loadingToast = toast.loading('Habilitando habitación...');
+                    try {
+                        const updateAvailable = await updateStatusRoom({hotelId: profile?.hotels.id, roomId: room.id});
+                        updateRoom(updateAvailable)
+                        toast.dismiss(loadingToast);
+                        toast.success('Habitación habilitada', {description: `${room.name} fue habilitada correctamente.`});
+                    } catch (error) {
+                        console.error(error);
+                        toast.dismiss(loadingToast);
+                        toast.error('Error', {description: 'No se pudo habilitar la habitación.'});
+                    }
+                }
+            },
+            cancel: {
+                label: 'Cancelar',
+                onClick: () => {}
+            }
+        });
+    };
+
     return (
         <div className="w-full bg-white border-surface rounded-md overflow-hidden">
             <div className="relative w-full h bg-surface" style={{"--h": "180px"}}>
-                <span className={`absolute block rounded-full text-sm px-sm ${cssStatusRoom[room.status]}`} style={{"top": "10px", "right": "10px"}}>{statusRoom[room.status]}</span>
                 {room.room_images.length > 0 ? (
                     <img src={`${image.url}`} width={100} height={100} />
                 ) : (
@@ -48,7 +73,8 @@ export default function CardRoom ({ room, onEdit }) {
                 )}
             </div>
             <div className="w-full flex flex-col gap-md p-md">
-                <div className="w-full flex items-center justify-between">
+                <div className="w-full">
+                    <span className={`flex w-fit rounded-full mb-sm text-xs px-sm py-sm ${cssStatus[room.status]}`}>{statusRoom[room.status]}</span>
                     <h4 className="text-2xl font-bold">{room.name}</h4>
                 </div>
                 <p className="text-nowrap font-medium">S/ {(room.price).toFixed(2)} / por noche</p>
@@ -57,8 +83,11 @@ export default function CardRoom ({ room, onEdit }) {
                     <p className="flex items-center text-sm gap-sm"><IconDoor size={18}/> {room.floor} piso</p>
                 </div>
                 <div className="w-full flex gap-md items-center">
-                    <button className="w-full h flex items-center justify-center gap-md text-sm rounded-md bg-surface" style={{"--h": "50px"}} onClick={() => onEdit(room)}><IconPencil/> Editar</button>
-                    <button className="w h center rounded-md bg-danger text-white" style={{"--w": "50px", "--mnw": "50px", "--h": "50px"}} onClick={handleDelete}><IconTrash/></button>
+                    {(room.status === 'cleaning' || room.status === 'maintenance') && (
+                        <button className="w-full h flex items-center justify-center gap-md text-sm rounded-md bg-success-light text-success-dark" style={{"--h": "50px"}} onClick={handleAvailable}>Habilitar</button>
+                    )}
+                    <button className="w-full h flex items-center justify-center gap-md text-sm rounded-md bg-info-light text-info-dark" style={{"--h": "50px"}} onClick={() => onEdit(room)}><IconPencil/></button>
+                    <button className="w h center rounded-md bg-danger-light text-danger-dark" style={{"--w": "50px", "--mnw": "50px", "--h": "50px"}} onClick={handleDelete}><IconTrash/></button>
                 </div>
             </div>
         </div>

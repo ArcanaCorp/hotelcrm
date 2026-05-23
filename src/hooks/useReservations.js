@@ -21,11 +21,29 @@ export const useReservations = () => {
 
     const addBook = (book) => setBookings(prev => [book, ...prev]);
 
+    const updateBooking = ({ reservationId, status, payment_status }) => {
+        setBookings(prev =>
+            prev.map(booking => {
+                if (booking.id !== reservationId) return booking;
+                return {
+                    ...booking,
+                    ...(status && {
+                        status
+                    }),
+                    ...(payment_status && {
+                        payment_status
+                    })
+                };
+            })
+        );
+    };
+
     return {
         bookings,
         loading,
         getReservations,
-        addBook
+        addBook,
+        updateBooking
     }
 
 }

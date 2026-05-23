@@ -70,37 +70,75 @@
     background: var(--color-surface-variant);
 }
 
-.bg-error {
-    background: var(--color-error);
-}
-
-.bg-error-container {
-    background: var(--color-error-container);
-}
-
 .bg-success {
     background: var(--success);
 }
 
+.bg-success-light {
+    background: var(--success-light);
+}
+
+.text-success {
+    color: var(--success);
+}
+
+.text-success-dark {
+    color: var(--success-text);
+}
+
+
+/* WARNING */
 .bg-warning {
     background: var(--warning);
 }
 
-.bg-danger {
-    background: var(--danger);
+.bg-warning-light {
+    background: var(--warning-light);
 }
 
-.bg-white {
-    background: #ffffff;
+.text-warning {
+    color: var(--warning);
 }
 
-.bg-black {
-  background: #000000;
+.text-warning-dark {
+    color: var(--warning-text);
 }
 
-.bg-transparent {
-  background: transparent;
-}
+
+/* DANGER */
+.bg-danger { background: var(--danger); }
+
+.bg-danger-light { background: var(--danger-light); }
+
+.text-danger { color: var(--danger); }
+
+.text-danger-dark { color: var(--danger-text); }
+
+
+/* INFO */
+.bg-info { background: var(--info); }
+
+.bg-info-light { background: var(--info-light); }
+
+.text-info { color: var(--info); }
+
+.text-info-dark { color: var(--info-text); }
+
+
+/* ERROR */
+.bg-error { background: var(--error); }
+
+.bg-error-light { background: var(--error-light); }
+
+.text-error { color: var(--error); }
+
+.text-error-dark { color: var(--error-text); }
+
+.bg-white { background: #ffffff; }
+
+.bg-black { background: #000000; }
+
+.bg-transparent { background: transparent; }
 
 /* =========================================================
    TEXT COLORS

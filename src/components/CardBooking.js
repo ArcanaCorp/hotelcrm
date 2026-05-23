@@ -4,7 +4,10 @@ import { IconX } from "@tabler/icons-react";
 import moment from "moment";
 import { cancelReservation, confirmReservation, checkinReservation, checkoutReservation, receivedPaymentReservation, refundReservation } from "@/services/reservation.service";
 import { toast } from "sonner";
+import { useHotel } from "@/context/HotelContext";
 export default function CardBooking ({ book, onClose }) {
+
+    const { updateBook } = useHotel();
 
     const handleConfirmReservation = (reservation) => {
         toast.warning(
@@ -14,41 +17,17 @@ export default function CardBooking ({ book, onClose }) {
                 action: {
                     label: 'Confirmar',
                     onClick: async () => {
-
-                        const loadingToast = toast.loading(
-                            'Confirmando reserva...'
-                        );
-
+                        const loadingToast = toast.loading('Confirmando reserva...');
                         try {
-
-                            await confirmReservation({
-                                reservationId: reservation.id
-                            });
-
+                            await confirmReservation({reservationId: reservation.id});
+                            updateBook({reservationId: reservation.id, status: 'confirmed'});
                             toast.dismiss(loadingToast);
-
-                            toast.success(
-                                'Reserva confirmada',
-                                {
-                                    description: 'La reserva fue confirmada correctamente.'
-                                }
-                            );
-
+                            toast.success('Reserva confirmada',{description: 'La reserva fue confirmada correctamente.'});
                         } catch (error) {
-
                             console.error(error);
-
                             toast.dismiss(loadingToast);
-
-                            toast.error(
-                                'Error',
-                                {
-                                    description: 'No se pudo confirmar la reserva.'
-                                }
-                            );
-
+                            toast.error('Error',{description: 'No se pudo confirmar la reserva.'});
                         }
-
                     }
                 },
                 cancel: {
@@ -59,7 +38,6 @@ export default function CardBooking ({ book, onClose }) {
     };
 
     const handleCancelReservation = (reservation) => {
-
         toast.warning(
             'Cancelar reserva',
             {
@@ -67,42 +45,17 @@ export default function CardBooking ({ book, onClose }) {
                 action: {
                     label: 'Cancelar reserva',
                     onClick: async () => {
-
-                        const loadingToast = toast.loading(
-                            'Cancelando reserva...'
-                        );
-
+                        const loadingToast = toast.loading('Cancelando reserva...');
                         try {
-
-                            await cancelReservation({
-                                reservationId: reservation.id,
-                                roomId: reservation.rooms.id
-                            });
-
+                            await cancelReservation({reservationId: reservation.id, roomId: reservation.room_id});
+                            updateBook({reservationId: reservation.id, status: 'cancelled'});
                             toast.dismiss(loadingToast);
-
-                            toast.success(
-                                'Reserva cancelada',
-                                {
-                                    description: 'La reserva fue cancelada correctamente.'
-                                }
-                            );
-
+                            toast.success('Reserva cancelada', { description: 'La reserva fue cancelada correctamente.' });
                         } catch (error) {
-
                             console.error(error);
-
                             toast.dismiss(loadingToast);
-
-                            toast.error(
-                                'Error',
-                                {
-                                    description: 'No se pudo cancelar la reserva.'
-                                }
-                            );
-
+                            toast.error('Error', { description: 'No se pudo cancelar la reserva.' });
                         }
-
                     }
                 },
                 cancel: {
@@ -110,7 +63,6 @@ export default function CardBooking ({ book, onClose }) {
                 }
             }
         );
-
     };
 
     const handleCheckin = (reservation) => {
@@ -122,41 +74,17 @@ export default function CardBooking ({ book, onClose }) {
                 action: {
                     label: 'Registrar',
                     onClick: async () => {
-
-                        const loadingToast = toast.loading(
-                            'Registrando check-in...'
-                        );
-
+                        const loadingToast = toast.loading('Registrando check-in...');
                         try {
-
-                            await checkinReservation({
-                                reservationId: reservation.id
-                            });
-
+                            await checkinReservation({reservationId: reservation.id, roomId: reservation.room_id});
+                            updateBook({reservationId: reservation.id, status: 'checkin'});
                             toast.dismiss(loadingToast);
-
-                            toast.success(
-                                'Check-in registrado',
-                                {
-                                    description: 'El huésped ingresó correctamente.'
-                                }
-                            );
-
+                            toast.success('Check-in registrado', { description: 'El huésped ingresó correctamente.'});
                         } catch (error) {
-
                             console.error(error);
-
                             toast.dismiss(loadingToast);
-
-                            toast.error(
-                                'Error',
-                                {
-                                    description: 'No se pudo registrar el check-in.'
-                                }
-                            );
-
+                            toast.error('Error', {description: 'No se pudo registrar el check-in.'});
                         }
-
                     }
                 },
                 cancel: {
@@ -175,42 +103,17 @@ export default function CardBooking ({ book, onClose }) {
                 action: {
                     label: 'Registrar',
                     onClick: async () => {
-
-                        const loadingToast = toast.loading(
-                            'Registrando check-out...'
-                        );
-
+                        const loadingToast = toast.loading('Registrando check-out...');
                         try {
-
-                            await checkoutReservation({
-                                reservationId: reservation.id,
-                                roomId: reservation.rooms.id
-                            });
-
+                            await checkoutReservation({reservationId: reservation.id, roomId: reservation.room_id});
+                            updateBook({ reservationId: reservation.id, status: 'checkout' });
                             toast.dismiss(loadingToast);
-
-                            toast.success(
-                                'Check-out registrado',
-                                {
-                                    description: 'La habitación pasó a limpieza.'
-                                }
-                            );
-
+                            toast.success('Check-out registrado',{description: 'La habitación pasó a limpieza.'});
                         } catch (error) {
-
                             console.error(error);
-
                             toast.dismiss(loadingToast);
-
-                            toast.error(
-                                'Error',
-                                {
-                                    description: 'No se pudo registrar el check-out.'
-                                }
-                            );
-
+                            toast.error('Error', {description: 'No se pudo registrar el check-out.'});
                         }
-
                     }
                 },
                 cancel: {
@@ -229,41 +132,17 @@ export default function CardBooking ({ book, onClose }) {
                 action: {
                     label: 'Confirmar',
                     onClick: async () => {
-
-                        const loadingToast = toast.loading(
-                            'Confirmando pago...'
-                        );
-
+                        const loadingToast = toast.loading('Confirmando pago...');
                         try {
-
-                            await receivedPaymentReservation({
-                                reservationId: reservation.id
-                            });
-
+                            await receivedPaymentReservation({reservationId: reservation.id});
+                            updateBook({ reservationId: reservation.id, payment_status: 'paid'});
                             toast.dismiss(loadingToast);
-
-                            toast.success(
-                                'Pago confirmado',
-                                {
-                                    description: 'El pago fue registrado correctamente.'
-                                }
-                            );
-
+                            toast.success('Pago confirmado', {description: 'El pago fue registrado correctamente.'});
                         } catch (error) {
-
                             console.error(error);
-
                             toast.dismiss(loadingToast);
-
-                            toast.error(
-                                'Error',
-                                {
-                                    description: 'No se pudo confirmar el pago.'
-                                }
-                            );
-
+                            toast.error('Error', {description: 'No se pudo confirmar el pago.'});
                         }
-
                     }
                 },
                 cancel: {
@@ -288,35 +167,15 @@ export default function CardBooking ({ book, onClose }) {
                         );
 
                         try {
-
-                            await refundReservation({
-                                reservationId: reservation.id
-                            });
-
+                            await refundReservation({reservationId: reservation.id});
+                            updateBook({ reservationId: reservation.id, payment_status: 'refund' });
                             toast.dismiss(loadingToast);
-
-                            toast.success(
-                                'Reembolso realizado',
-                                {
-                                    description: 'El pago fue marcado como reembolsado.'
-                                }
-                            );
-
+                            toast.success('Reembolso realizado', {description: 'El pago fue marcado como reembolsado.'});
                         } catch (error) {
-
                             console.error(error);
-
                             toast.dismiss(loadingToast);
-
-                            toast.error(
-                                'Error',
-                                {
-                                    description: 'No se pudo procesar el reembolso.'
-                                }
-                            );
-
+                            toast.error('Error', { description: 'No se pudo procesar el reembolso.'});
                         }
-
                     }
                 },
                 cancel: {

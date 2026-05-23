@@ -44,6 +44,7 @@ export function HotelProvider ({ children }) {
         bookings: bookings.bookings,
         loadBooks: bookings.loading,
         addBook: bookings.addBook,
+        updateBook: bookings.updateBooking,
 
         rooms: rooms.rooms,
         loadRooms: rooms.loading,
