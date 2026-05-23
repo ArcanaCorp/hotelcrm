@@ -1,0 +1,67 @@
+.rounded-sm { border-radius: var(--radius-sm); }
+.rounded-base { border-radius: var(--radius-default); }
+.rounded-md { border-radius: var(--radius-md); }
+.rounded-lg { border-radius: var(--radius-lg); }
+.rounded-xl { border-radius: var(--radius-xl); }
+.rounded-full { border-radius: var(--radius-full); }
+
+.rounded-card { border-radius: var(--radius-card); }
+.rounded-button { border-radius: var(--radius-button); }
+.rounded-input { border-radius: var(--radius-input); }
+.rounded-modal { border-radius: var(--radius-modal); }
+
+/* =========================================================
+   BORDER COLORS
+   ========================================================= */
+
+.border-primary {
+    border: 1px solid var(--color-primary);
+}
+
+.border-secondary {
+    border: 1px solid var(--color-secondary);
+}
+
+.border-tertiary {
+    border: 1px solid var(--color-tertiary);
+}
+
+.border-surface {
+    border: 1px solid var(--color-surface);
+}
+
+.border-outline {
+    border: 1px solid var(--color-outline);
+}
+
+.border-outline-variant {
+    border: 1px solid var(--color-outline-variant);
+}
+
+.border-error {
+    border: 1px solid var(--color-error);
+}
+
+.border-success {
+    border: 1px solid var(--success);
+}
+
+.border-warning {
+    border: 1px solid var(--warning);
+}
+
+.border-danger {
+    border: 1px solid var(--danger);
+}
+
+.border-white {
+    border: 1px solid #ffffff;
+}
+
+.border-black {
+    border: 1px solid #000000;
+}
+
+.border-transparent {
+    border: 1px solid transparent;
+}

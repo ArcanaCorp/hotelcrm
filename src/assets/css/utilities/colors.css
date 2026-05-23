@@ -1,0 +1,404 @@
+/* =========================================================
+   COLOR UTILITIES — ANDEAN TECH HOSPITALITY
+   ========================================================= */
+
+/* =========================================================
+   BACKGROUND COLORS
+   ========================================================= */
+
+.bg-primary {
+    background: var(--color-primary);
+}
+
+.bg-primary-container {
+    background: var(--color-primary-container);
+}
+
+.bg-secondary {
+    background: var(--color-secondary);
+}
+
+.bg-secondary-container {
+    background: var(--color-secondary-container);
+}
+
+.bg-tertiary {
+    background: var(--color-tertiary);
+}
+
+.bg-tertiary-container {
+    background: var(--color-tertiary-container);
+}
+
+.bg-surface {
+    background: var(--color-surface);
+}
+
+.bg-surface-dim {
+    background: var(--color-surface-dim);
+}
+
+.bg-surface-bright {
+    background: var(--color-surface-bright);
+}
+
+.bg-surface-lowest {
+    background: var(--color-surface-container-lowest);
+}
+
+.bg-surface-low {
+    background: var(--color-surface-container-low);
+}
+
+.bg-surface-container {
+    background: var(--color-surface-container);
+}
+
+.bg-surface-high {
+    background: var(--color-surface-container-high);
+}
+
+.bg-surface-highest {
+    background: var(--color-surface-container-highest);
+}
+
+.bg-background {
+    background: var(--color-background);
+}
+
+.bg-surface-variant {
+    background: var(--color-surface-variant);
+}
+
+.bg-error {
+    background: var(--color-error);
+}
+
+.bg-error-container {
+    background: var(--color-error-container);
+}
+
+.bg-success {
+    background: var(--success);
+}
+
+.bg-warning {
+    background: var(--warning);
+}
+
+.bg-danger {
+    background: var(--danger);
+}
+
+.bg-white {
+    background: #ffffff;
+}
+
+.bg-black {
+  background: #000000;
+}
+
+.bg-transparent {
+  background: transparent;
+}
+
+/* =========================================================
+   TEXT COLORS
+   ========================================================= */
+
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-on-primary {
+  color: var(--color-on-primary);
+}
+
+.text-primary-container {
+  color: var(--color-primary-container);
+}
+
+.text-on-primary-container {
+  color: var(--color-on-primary-container);
+}
+
+.text-secondary {
+  color: var(--color-secondary);
+}
+
+.text-on-secondary {
+  color: var(--color-on-secondary);
+}
+
+.text-secondary-container {
+  color: var(--color-secondary-container);
+}
+
+.text-on-secondary-container {
+  color: var(--color-on-secondary-container);
+}
+
+.text-tertiary {
+  color: var(--color-tertiary);
+}
+
+.text-on-tertiary {
+  color: var(--color-on-tertiary);
+}
+
+.text-surface {
+  color: var(--color-surface);
+}
+
+.text-on-surface {
+  color: var(--color-on-surface);
+}
+
+.text-on-surface-variant {
+  color: var(--color-on-surface-variant);
+}
+
+.text-background {
+  color: var(--color-background);
+}
+
+.text-on-background {
+  color: var(--color-on-background);
+}
+
+.text-error {
+  color: var(--color-error);
+}
+
+.text-on-error {
+  color: var(--color-on-error);
+}
+
+.text-success {
+  color: var(--success);
+}
+
+.text-warning {
+  color: var(--warning);
+}
+
+.text-danger {
+  color: var(--danger);
+}
+
+.text-white {
+  color: #ffffff;
+}
+
+.text-black {
+  color: #000000;
+}
+
+/* =========================================================
+   SVG FILL
+   ========================================================= */
+
+.fill-primary {
+    fill: var(--color-primary);
+}
+
+.fill-secondary {
+    fill: var(--color-secondary);
+}
+
+.fill-tertiary {
+    fill: var(--color-tertiary);
+}
+
+.fill-success {
+    fill: var(--success);
+}
+
+.fill-warning {
+    fill: var(--warning);
+}
+
+.fill-danger {
+    fill: var(--danger);
+}
+
+.fill-white {
+    fill: #ffffff;
+}
+
+.fill-black {
+    fill: #000000;
+}
+
+.fill-current {
+    fill: currentColor;
+}
+
+/* =========================================================
+   SVG STROKE
+   ========================================================= */
+
+.stroke-primary {
+    stroke: var(--color-primary);
+}
+
+.stroke-secondary {
+    stroke: var(--color-secondary);
+}
+
+.stroke-tertiary {
+    stroke: var(--color-tertiary);
+}
+
+.stroke-success {
+    stroke: var(--success);
+}
+
+.stroke-warning {
+    stroke: var(--warning);
+}
+
+.stroke-danger {
+    stroke: var(--danger);
+}
+
+.stroke-white {
+    stroke: #ffffff;
+}
+
+.stroke-black {
+    stroke: #000000;
+}
+
+.stroke-current {
+    stroke: currentColor;
+}
+
+/* =========================================================
+   STATUS BADGES
+   ========================================================= */
+
+.badge-success {
+    background: var(--badge-success-bg);
+    color: var(--badge-success-text);
+}
+
+.badge-warning {
+    background: var(--badge-warning-bg);
+    color: var(--badge-warning-text);
+}
+
+.badge-danger {
+    background: var(--badge-danger-bg);
+    color: var(--badge-danger-text);
+}
+
+.badge-info {
+    background: var(--badge-info-bg);
+    color: var(--badge-info-text);
+}
+
+/* =========================================================
+   ROOM STATUS
+   ========================================================= */
+
+.status-available {
+    background: var(--status-available-bg);
+    color: var(--status-available-text);
+}
+
+.status-occupied {
+    background: var(--status-occupied-bg);
+    color: var(--status-occupied-text);
+}
+
+.status-cleaning {
+    background: var(--status-cleaning-bg);
+    color: var(--status-cleaning-text);
+}
+
+/* =========================================================
+   GLASS EFFECTS
+   ========================================================= */
+
+.bg-glass {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+
+    border: 1px solid var(--glass-border);
+}
+
+/* =========================================================
+   GRADIENTS
+   ========================================================= */
+
+.bg-gradient-primary {
+    background: linear-gradient(
+        to bottom,
+        #4338ca,
+        #3730a3
+    );
+}
+
+.bg-gradient-surface {
+    background: linear-gradient(
+        to bottom,
+        #ffffff,
+        #f8f9ff
+    );
+}
+
+.bg-gradient-dark {
+    background: linear-gradient(
+        to bottom,
+        #213145,
+        #0b1c30
+    );
+}
+
+.bg-gradient-success {
+    background: linear-gradient(
+        to bottom,
+        #14b8a6,
+        #0d9488
+    );
+}
+
+/* =========================================================
+   HOVER STATES
+   ========================================================= */
+
+.hover-bg-primary:hover {
+    background: var(--color-primary);
+}
+
+.hover-bg-secondary:hover {
+    background: var(--color-secondary);
+}
+
+.hover-bg-surface:hover {
+    background: var(--color-surface-container-low);
+}
+
+.hover-text-primary:hover {
+    color: var(--color-primary);
+}
+
+.hover-text-secondary:hover {
+    color: var(--color-secondary);
+}
+
+/* =========================================================
+   SELECTION
+   ========================================================= */
+
+.selection-primary::selection {
+    background: var(--color-primary);
+    color: var(--color-on-primary);
+}
+
+.selection-secondary::selection {
+    background: var(--color-secondary);
+    color: var(--color-on-secondary);
+}

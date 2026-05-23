@@ -1,0 +1,499 @@
+/* =========================================================
+   BUTTONS — ANDEAN TECH HOSPITALITY
+   ========================================================= */
+
+.btn {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+
+  border-radius: var(--radius-button);
+
+  font-family: var(--font-sans);
+  font-size: var(--text-label-md-size);
+  font-weight: 600;
+  line-height: 1;
+
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast),
+    transform var(--transition-fast),
+    opacity var(--transition-fast),
+    box-shadow var(--transition-fast);
+
+  white-space: nowrap;
+
+  user-select: none;
+
+  overflow: hidden;
+}
+
+/* =========================================================
+   BUTTON STATES
+   ========================================================= */
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn:disabled,
+.btn.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* =========================================================
+   BUTTON SIZES
+   ========================================================= */
+
+.btn-xs {
+  height: 32px;
+  padding: 0 var(--space-3);
+
+  font-size: 12px;
+}
+
+.btn-sm {
+  height: 40px;
+  padding: 0 var(--space-4);
+
+  font-size: 13px;
+}
+
+.btn-md {
+  height: 48px;
+  padding: 0 var(--space-5);
+}
+
+.btn-lg {
+  height: 56px;
+  padding: 0 var(--space-6);
+
+  font-size: 15px;
+}
+
+.btn-xl {
+  height: 64px;
+  padding: 0 var(--space-8);
+
+  font-size: 16px;
+}
+
+/* =========================================================
+   BUTTON WIDTH
+   ========================================================= */
+
+.btn-block {
+  width: 100%;
+}
+
+.btn-full {
+  width: 100%;
+}
+
+/* =========================================================
+   PRIMARY
+   ========================================================= */
+
+.btn-primary {
+  color: var(--color-on-primary);
+
+  background: var(--button-primary-gradient);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+  background: var(--button-primary-hover);
+
+  box-shadow: var(--shadow-hover);
+}
+
+.btn-primary:focus-visible {
+  box-shadow:
+    0 0 0 4px rgba(67, 56, 202, 0.18);
+}
+
+/* =========================================================
+   SECONDARY
+   ========================================================= */
+
+.btn-secondary {
+  color: var(--color-primary);
+
+  background: var(--button-secondary-bg);
+
+  border:
+    1px solid
+    var(--button-secondary-border);
+}
+
+.btn-secondary:hover {
+  background:
+    var(--color-surface-container-low);
+}
+
+/* =========================================================
+   TERTIARY
+   ========================================================= */
+
+.btn-tertiary {
+  color: var(--color-on-surface);
+
+  background:
+    var(--color-surface-container);
+}
+
+.btn-tertiary:hover {
+  background:
+    var(--color-surface-container-high);
+}
+
+/* =========================================================
+   SUCCESS
+   ========================================================= */
+
+.btn-success {
+  color: #ffffff;
+
+  background: linear-gradient(
+    to bottom,
+    #14b8a6,
+    #0d9488
+  );
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+}
+
+.btn-success:hover {
+  filter: brightness(1.05);
+}
+
+/* =========================================================
+   WARNING
+   ========================================================= */
+
+.btn-warning {
+  color: #ffffff;
+
+  background: linear-gradient(
+    to bottom,
+    #fbbf24,
+    #f59e0b
+  );
+}
+
+.btn-warning:hover {
+  filter: brightness(1.05);
+}
+
+/* =========================================================
+   DANGER
+   ========================================================= */
+
+.btn-danger {
+  color: #ffffff;
+
+  background: linear-gradient(
+    to bottom,
+    #fb7185,
+    #e11d48
+  );
+}
+
+.btn-danger:hover {
+  filter: brightness(1.05);
+}
+
+/* =========================================================
+   OUTLINE PRIMARY
+   ========================================================= */
+
+.btn-outline-primary {
+  color: var(--color-primary);
+
+  background: transparent;
+
+  border:
+    1px solid
+    var(--color-primary);
+}
+
+.btn-outline-primary:hover {
+  color: var(--color-on-primary);
+
+  background: var(--color-primary);
+}
+
+/* =========================================================
+   OUTLINE SECONDARY
+   ========================================================= */
+
+.btn-outline-secondary {
+  color: var(--color-secondary);
+
+  background: transparent;
+
+  border:
+    1px solid
+    var(--color-secondary);
+}
+
+.btn-outline-secondary:hover {
+  color: var(--color-on-secondary);
+
+  background: var(--color-secondary);
+}
+
+/* =========================================================
+   OUTLINE DANGER
+   ========================================================= */
+
+.btn-outline-danger {
+  color: var(--danger);
+
+  background: transparent;
+
+  border:
+    1px solid
+    var(--danger);
+}
+
+.btn-outline-danger:hover {
+  color: #ffffff;
+
+  background: var(--danger);
+}
+
+/* =========================================================
+   GHOST
+   ========================================================= */
+
+.btn-ghost {
+  color: var(--color-on-surface);
+
+  background: transparent;
+}
+
+.btn-ghost:hover {
+  background:
+    var(--color-surface-container-low);
+}
+
+/* =========================================================
+   GLASS
+   ========================================================= */
+
+.btn-glass {
+  color: var(--color-on-surface);
+
+  background: var(--glass-bg);
+
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+
+  border:
+    1px solid
+    var(--glass-border);
+}
+
+.btn-glass:hover {
+  background:
+    rgba(255, 255, 255, 0.9);
+}
+
+/* =========================================================
+   LINK BUTTON
+   ========================================================= */
+
+.btn-link {
+  padding: 0;
+
+  height: auto;
+
+  color: var(--color-primary);
+
+  background: transparent;
+
+  border: none;
+}
+
+.btn-link:hover {
+  text-decoration: underline;
+}
+
+/* =========================================================
+   ICON BUTTON
+   ========================================================= */
+
+.btn-icon {
+  padding: 0;
+
+  aspect-ratio: 1 / 1;
+}
+
+.btn-icon.btn-xs {
+  width: 32px;
+  height: 32px;
+}
+
+.btn-icon.btn-sm {
+  width: 40px;
+  height: 40px;
+}
+
+.btn-icon.btn-md {
+  width: 48px;
+  height: 48px;
+}
+
+.btn-icon.btn-lg {
+  width: 56px;
+  height: 56px;
+}
+
+/* =========================================================
+   FLOATING ACTION BUTTON
+   ========================================================= */
+
+.btn-fab {
+  width: 64px;
+  height: 64px;
+
+  border-radius: var(--radius-full);
+
+  background: var(--button-primary-gradient);
+
+  color: #ffffff;
+
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-fab:hover {
+  transform:
+    translateY(-2px)
+    scale(1.02);
+}
+
+/* =========================================================
+   SOFT BUTTONS
+   ========================================================= */
+
+.btn-soft-primary {
+  color: var(--color-primary);
+
+  background:
+    rgba(55, 48, 163, 0.12);
+}
+
+.btn-soft-primary:hover {
+  background:
+    rgba(55, 48, 163, 0.18);
+}
+
+.btn-soft-success {
+  color: #0f766e;
+
+  background:
+    rgba(13, 148, 136, 0.12);
+}
+
+.btn-soft-success:hover {
+  background:
+    rgba(13, 148, 136, 0.18);
+}
+
+.btn-soft-danger {
+  color: #be123c;
+
+  background:
+    rgba(225, 29, 72, 0.12);
+}
+
+.btn-soft-danger:hover {
+  background:
+    rgba(225, 29, 72, 0.18);
+}
+
+/* =========================================================
+   LOADING STATE
+   ========================================================= */
+
+.btn-loading {
+    pointer-events: none;
+}
+
+.btn-loading::after {
+    content: "";
+
+    width: 16px;
+    height: 16px;
+
+    border-radius: 50%;
+
+    border:
+        2px solid
+        rgba(255, 255, 255, 0.3);
+
+    border-top-color: #ffffff;
+
+    animation:
+        btn-spinner 0.8s linear infinite;
+}
+
+/* =========================================================
+   BADGE INSIDE BUTTON
+   ========================================================= */
+
+.btn-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 20px;
+    height: 20px;
+
+    padding: 0 6px;
+
+    border-radius: var(--radius-full);
+
+    background: rgba(255, 255, 255, 0.18);
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+/* =========================================================
+   BUTTON GROUP
+   ========================================================= */
+
+.btn-group {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes btn-spinner {
+    to {
+        transform: rotate(360deg);
+    }
+}
