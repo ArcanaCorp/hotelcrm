@@ -1,3 +1,4 @@
+import { IMAGE_HOTEL_DEFAULT } from "@/config";
 import { useHotel } from "@/context/HotelContext";
 import { cssStatus, statusRoom } from "@/helpers/statusText";
 import { deleteRoom, updateStatusRoom } from "@/services/rooms.service";
@@ -7,8 +8,6 @@ import { toast } from "sonner";
 export default function CardRoom ({ room, onEdit }) {
 
     const { profile, removeRoom, updateRoom } = useHotel();
-
-    const image = room.room_images.find((rimage) => rimage.is_cover === true);
 
     const handleDelete = () => {
         if (room.status === 'occupied') return toast.warning('Habitación ocupada', { description: `La habitación "${room.name}" actualmente está ocupada y no puede eliminarse.`});
@@ -66,11 +65,7 @@ export default function CardRoom ({ room, onEdit }) {
     return (
         <div className="w-full bg-white border-surface rounded-md overflow-hidden">
             <div className="relative w-full h bg-surface" style={{"--h": "180px"}}>
-                {room.room_images.length > 0 ? (
-                    <img src={`${image.url}`} width={100} height={100} />
-                ) : (
-                    <img src={`https://img.freepik.com/fotos-premium/habitaciones-hotel-modernas-elegantes_1417-8488.jpg`} width={100} height={100} />
-                )}
+                <img src={`${room?.room_images?.length > 0 ? room?.room_images[0]?.url : IMAGE_HOTEL_DEFAULT}`} />
             </div>
             <div className="w-full flex flex-col gap-md p-md">
                 <div className="w-full">

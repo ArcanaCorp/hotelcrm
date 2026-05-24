@@ -5,6 +5,8 @@ export const SUPABASE_ARCANA_CORE_KEY = process.env.NEXT_PUBLIC_SUPABASE_ARCANA_
 export const SUPABASE_HOTEL_URL = process.env.NEXT_PUBLIC_SUPABASE_HOTEL_URL;
 export const SUPABASE_HOTEL_KEY = process.env.NEXT_PUBLIC_SUPABASE_HOTEL_KEY;
 
+export const IMAGE_HOTEL_DEFAULT = 'https://img.freepik.com/fotos-premium/habitaciones-hotel-modernas-elegantes_1417-8488.jpg'
+
 export const methodPay = [
     'Yape',
     'Plin',
